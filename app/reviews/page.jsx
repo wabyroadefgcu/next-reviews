@@ -3,12 +3,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getReviews } from '@/lib/reviews';
 
+//export const dynamic = 'force-dynamic';
+export const revalidate = 30;
+
 export const metadata = {
   title: 'Reviews',
 };
 
 export default async function ReviewsPage() {
-  const reviews = await getReviews(6);
+  const reviews = await getReviews(18);
   console.log('[ReviewsPage] reviews:',
     reviews.map((review) => review.slug).join(', '));
 
